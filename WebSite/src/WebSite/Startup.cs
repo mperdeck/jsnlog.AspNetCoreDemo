@@ -20,6 +20,7 @@ using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
 using Microsoft.Framework.Runtime;
+using Microsoft.Extensions.Logging;
 
 namespace WebSite
 {
@@ -53,10 +54,10 @@ namespace WebSite
         }
 
         // Configure is called after ConfigureServices is called.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Microsoft.Extensions.Logging.ILoggerFactory loggerFactory)
         {
-            loggerFactory.MinimumLevel = LogLevel.Information;
-            loggerFactory.AddConsole();
+            loggerFactory.MinimumLevel = Microsoft.Extensions.Logging.LogLevel.Information;
+            loggerFactory.AddDebug();
 
             // Configure the HTTP request pipeline.
 
