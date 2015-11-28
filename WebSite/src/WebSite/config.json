@@ -6,5 +6,16 @@
     "DefaultConnection": {
       "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-WebSite-649161d1-2090-481d-b5b7-0bc28a15accc;Trusted_Connection=True;MultipleActiveResultSets=true"
     }
+  },
+
+  "JSNLog": {
+    "maxMessages": "5",
+    "loggers": [
+      {
+        "level": "ERROR"
+      }
+    ]
   }
 }
+
+

@@ -17,14 +17,22 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Data.Entity;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
+using Microsoft.Framework.OptionsModel;
+using Microsoft.Framework.Runtime;
 //using Microsoft.Framework.Logging;
 using Microsoft.Extensions.Logging;
 using Microsoft.Framework.Logging.Console;
 using Microsoft.Framework.Runtime;
+
+
 using Serilog;
 using System.IO;
+
+
+
 using Serilog.Sinks.IOFile;
 using Serilog.Formatting.Raw;
+using JSNLog;
 
 namespace WebSite
 {
@@ -55,6 +63,18 @@ namespace WebSite
                .MinimumLevel.Debug()
                 .WriteTo.Sink(new FileSink(logFilePath, new RawFormatter(), null))
                .CreateLogger();
+
+            //##############################
+            //// Configure JSNLog
+
+            //var options = ConfigurationBinder.Bind<AppSettings>(Configuration);
+
+
+            //JsnlogConfiguration jsnlogConfiguration = Configuration.GetConfigurationSection.Get<JsnlogConfiguration>(("JSNLog");
+
+            string s = Configuration.Get("JSNLog");
+
+            string xxx = "44";
         }
 
         public IConfiguration Configuration { get; set; }
@@ -67,6 +87,9 @@ namespace WebSite
 
             services.AddSingleton<ILoggerFactory, LoggerFactory>();
             services.AddSingleton<Constants>();
+
+            // Allow getting JSNLog configuration
+            services.Configure<JsnlogConfiguration>(Configuration.GetConfigurationSection("JSNLog"));
         }
 
         // Configure is called after ConfigureServices is called.
@@ -105,6 +128,11 @@ namespace WebSite
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
+
+            // Configure JSNLog
+
+            var jsnlogConfiguration = app.ApplicationServices.GetService<IOptions<JsnlogConfiguration>>();
+
 
 
 
