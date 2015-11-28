@@ -9,22 +9,16 @@ namespace WebSite.Controllers
 {
     public class HomeController : Controller
     {
-        private ILoggerFactory _loggerFactory;
+        private ILogger _logger;
 
         public HomeController(ILoggerFactory loggerFactory)
         {
-            _loggerFactory = loggerFactory;
+            _logger = loggerFactory.CreateLogger<HomeController>();
         }
 
         public IActionResult Index()
         {
-            //############         _logger.LogInformation("Home page opened at {requestTime}", DateTime.Now);
-
-            Microsoft.Extensions.Logging.ILogger _logger = _loggerFactory.CreateLogger<HomeController>();
-
-            _logger.LogInformation("home page opened at {requestTime}", DateTime.Now);
-
-
+            _logger.LogInformation("Home page opened at {requestTime}", DateTime.Now);
 
             return View();
         }
