@@ -28,7 +28,8 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta5",
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
-    "Serilog": "1.5.14"
+    "Serilog": "1.5.14",
+    "Serilog.Framework.Logging": "1.0.0-rc1-final-10071"
   },
 
   "commands": {

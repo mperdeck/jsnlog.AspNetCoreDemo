@@ -17,9 +17,12 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Data.Entity;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.Logging;
+//using Microsoft.Framework.Logging;
+using Microsoft.Extensions.Logging;
 using Microsoft.Framework.Logging.Console;
 using Microsoft.Framework.Runtime;
+using Serilog;
+using System.IO;
 
 namespace WebSite
 {
@@ -41,6 +44,15 @@ namespace WebSite
             }
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            // Configure Serilog
+
+            string logFilePath = Path.Combine(appEnv.ApplicationBasePath, "log-{Date}.txt");
+
+            Log.Logger = new LoggerConfiguration()
+               .MinimumLevel.Debug()
+               .WriteTo.RollingFile(logFilePath)
+               .CreateLogger();
         }
 
         public IConfiguration Configuration { get; set; }
@@ -48,17 +60,20 @@ namespace WebSite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLogging();
-
             // Add MVC services to the services container.
             services.AddMvc();
+
+            //###########      services.AddLogging();
+
+            services.AddScoped<ILoggerFactory, LoggerFactory>();
         }
 
         // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.MinimumLevel = LogLevel.Information;
-            loggerFactory.AddConsole();
+            loggerFactory.AddSerilog();
+            loggerFactory.AddDebug();
 
             // Configure the HTTP request pipeline.
 
@@ -89,6 +104,17 @@ namespace WebSite
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
+
+
+
+            //--------------------
+            //#######################
+            Microsoft.Extensions.Logging.ILogger _logger = loggerFactory.CreateLogger("TestLogger");
+
+            _logger.LogInformation("test page opened at {requestTime}", DateTime.Now);
+
+
+
         }
     }
 }

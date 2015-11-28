@@ -1608,6 +1608,25 @@
           "lib/net45/Serilog.FullNetFx.dll": {}
         }
       },
+      "Serilog.Framework.Logging/1.0.0-rc1-final-10071": {
+        "dependencies": {
+          "Serilog": "1.5.11",
+          "Microsoft.Extensions.Logging": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "System.Runtime",
+          "mscorlib",
+          "System",
+          "System.Core",
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "lib/dnx451/Serilog.Framework.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Serilog.Framework.Logging.dll": {}
+        }
+      },
       "System.Collections.Immutable/1.1.36": {
         "compile": {
           "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll": {}
@@ -2920,6 +2939,18 @@
         "lib/portable-net45+win+wpa81+wp80+MonoAndroid10+MonoTouch10/Serilog.XML"
       ]
     },
+    "Serilog.Framework.Logging/1.0.0-rc1-final-10071": {
+      "sha512": "RyB8mv2eL0xYISh7v2+62as9Whdx8WOeqfSPXcac3mRLIW3XHY0LCbKDGwIA1pDbn+AAmAa6IR7+6wmI7mI93g==",
+      "files": [
+        "Serilog.Framework.Logging.1.0.0-rc1-final-10071.nupkg",
+        "Serilog.Framework.Logging.1.0.0-rc1-final-10071.nupkg.sha512",
+        "Serilog.Framework.Logging.nuspec",
+        "lib/dnx451/Serilog.Framework.Logging.dll",
+        "lib/dnx451/Serilog.Framework.Logging.xml",
+        "lib/dnxcore50/Serilog.Framework.Logging.dll",
+        "lib/dnxcore50/Serilog.Framework.Logging.xml"
+      ]
+    },
     "System.Collections.Immutable/1.1.36": {
       "serviceable": true,
       "sha512": "MOlivTIeAIQPPMUPWIIoMCvZczjFRLYUWSYwqi1szu8QPyeIbsaPeI+hpXe1DzTxNwnRnmfYaoToi6kXIfSPNg==",
@@ -2971,7 +3002,8 @@
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-beta5",
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Serilog >= 1.5.14"
+      "Serilog >= 1.5.14",
+      "Serilog.Framework.Logging >= 1.0.0-rc1-final-10071"
     ],
     "DNX,Version=v4.5.1": []
   }
