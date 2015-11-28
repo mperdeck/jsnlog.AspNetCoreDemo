@@ -47,7 +47,7 @@ namespace WebSite
 
             // Configure Serilog
 
-            string logFilePath = Path.Combine(appEnv.ApplicationBasePath, "log-{Date}.txt");
+            string logFilePath = Path.Combine(appEnv.ApplicationBasePath, "Logs/log-{Date}.txt");
 
             Log.Logger = new LoggerConfiguration()
                .MinimumLevel.Debug()
@@ -63,9 +63,7 @@ namespace WebSite
             // Add MVC services to the services container.
             services.AddMvc();
 
-            //###########      services.AddLogging();
-
-            services.AddScoped<ILoggerFactory, LoggerFactory>();
+            services.AddSingleton<ILoggerFactory, LoggerFactory>();
         }
 
         // Configure is called after ConfigureServices is called.

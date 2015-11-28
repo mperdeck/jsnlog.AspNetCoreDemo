@@ -1,0 +1,9 @@
+﻿2015-11-28 12:47:03.005 +11:00 [Information] test page opened at 11/28/2015 12:47:03
+2015-11-28 13:01:21.298 +11:00 [Information] test page opened at 11/28/2015 13:01:21
+2015-11-28 13:01:21.645 +11:00 [Information] home page opened at 11/28/2015 13:01:21
+2015-11-28 13:02:23.610 +11:00 [Information] home page opened at 11/28/2015 13:02:23
+2015-11-28 13:02:25.721 +11:00 [Information] home page opened at 11/28/2015 13:02:25
+2015-11-28 13:02:26.431 +11:00 [Information] home page opened at 11/28/2015 13:02:26
+2015-11-28 13:02:58.212 +11:00 [Information] home page opened at 11/28/2015 13:02:58
+2015-11-28 13:02:59.658 +11:00 [Information] home page opened at 11/28/2015 13:02:59
+2015-11-28 13:03:00.624 +11:00 [Information] home page opened at 11/28/2015 13:03:00
