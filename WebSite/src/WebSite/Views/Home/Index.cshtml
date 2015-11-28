@@ -6,6 +6,21 @@
     <body>
         <h1>jsnlog.AspNet5Demo</h1>
 
-
+        <p>
+            The logs will be written to:
+        </p>
+        <ul>
+            <li>
+                The Debug windown in Visual Studio;
+            </li>
+            <li>
+                The log file at @ViewData["LogFilePath"]
+            </li>
+        </ul>
+        <p>
+            The log file is written by the <a href="http://serilog.net/">SeriLog</a> server side logging package
+            (as configured in the Startup/Configure method). The log file is not updated immediately,
+            because SeriLog caches changes for a little while.
+        </p>
     </body>
 </html>

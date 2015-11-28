@@ -23,6 +23,8 @@ using Microsoft.Framework.Logging.Console;
 using Microsoft.Framework.Runtime;
 using Serilog;
 using System.IO;
+using Serilog.Sinks.IOFile;
+using Serilog.Formatting.Raw;
 
 namespace WebSite
 {
@@ -47,11 +49,11 @@ namespace WebSite
 
             // Configure Serilog
 
-            string logFilePath = Path.Combine(appEnv.ApplicationBasePath, "Logs/log-{Date}.txt");
+            string logFilePath = new Constants(appEnv).LogFilePath;
 
             Log.Logger = new LoggerConfiguration()
                .MinimumLevel.Debug()
-               .WriteTo.RollingFile(logFilePath)
+                .WriteTo.Sink(new FileSink(logFilePath, new RawFormatter(), null))
                .CreateLogger();
         }
 
@@ -64,6 +66,7 @@ namespace WebSite
             services.AddMvc();
 
             services.AddSingleton<ILoggerFactory, LoggerFactory>();
+            services.AddSingleton<Constants>();
         }
 
         // Configure is called after ConfigureServices is called.
