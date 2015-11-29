@@ -22,8 +22,6 @@ using Microsoft.Framework.Runtime;
 //using Microsoft.Framework.Logging;
 using Microsoft.Extensions.Logging;
 using Microsoft.Framework.Logging.Console;
-using Microsoft.Framework.Runtime;
-
 
 using Serilog;
 using System.IO;
@@ -64,6 +62,18 @@ namespace WebSite
                 .WriteTo.Sink(new FileSink(logFilePath, new RawFormatter(), null))
                .CreateLogger();
 
+            // Configure JSNLog
+
+            JavascriptLogging.SetJsnlogConfiguration(new JsnlogConfiguration
+            {
+                loggers = new List<Logger> {
+                    new Logger {
+                        level="ERROR"
+                    }
+                }
+            });
+
+
             //##############################
             //// Configure JSNLog
 
@@ -71,10 +81,6 @@ namespace WebSite
 
 
             //JsnlogConfiguration jsnlogConfiguration = Configuration.GetConfigurationSection.Get<JsnlogConfiguration>(("JSNLog");
-
-            string s = Configuration.Get("JSNLog");
-
-            string xxx = "44";
         }
 
         public IConfiguration Configuration { get; set; }
@@ -88,8 +94,8 @@ namespace WebSite
             services.AddSingleton<ILoggerFactory, LoggerFactory>();
             services.AddSingleton<Constants>();
 
-            // Allow getting JSNLog configuration
-            services.Configure<JsnlogConfiguration>(Configuration.GetConfigurationSection("JSNLog"));
+            // Allow usage of JSNLog in OWIN pipeline
+        services.AddSingleton<JsnlogMiddlewareComponent>();
         }
 
         // Configure is called after ConfigureServices is called.
@@ -118,6 +124,17 @@ namespace WebSite
             // Add static files to the request pipeline.
             app.UseStaticFiles();
 
+
+
+      //      app.UseOwin(appBuilder => appBuilder.UseJSNLog());
+            app.UseMiddleware<JsnlogMiddlewareComponent>();
+
+
+            // Add JSNLog to the pipeline.
+            //  ##############      app.UseJSNLog();
+
+
+
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
             {
@@ -130,9 +147,41 @@ namespace WebSite
             });
 
             // Configure JSNLog
+            //
+            // Add logging handler, that
+            // 1) logs the message using the ASP.NET5 framework;
+            // 2) cancels further logging inside JSNLog. 
 
-            var jsnlogConfiguration = app.ApplicationServices.GetService<IOptions<JsnlogConfiguration>>();
+            LoggingHandler loggingHandler =
+                (LoggingEventArgs loggingEventArgs) =>
+                {
+                    Microsoft.Extensions.Logging.ILogger logger = loggerFactory.CreateLogger(loggingEventArgs.FinalLogger);
 
+                    Object message;
+                    try
+                    {
+                        message = Newtonsoft.Json.JsonConvert.DeserializeObject<Object>(loggingEventArgs.FinalMessage);
+                    }
+                    catch
+                    {
+                        message = loggingEventArgs.FinalMessage;
+                    }
+
+                    var requestId = loggingEventArgs.LogRequest.RequestId;
+                    var utcDate = loggingEventArgs.LogRequest.UtcDate;
+
+                    switch (loggingEventArgs.FinalLevel)
+                    {
+                        case Level.TRACE: logger.LogDebug("{logRequestId} - {logTime} - {message}", requestId, utcDate, message); break;
+                        case Level.DEBUG: logger.LogVerbose("{logRequestId} - {logTime} - {message}", requestId, utcDate, message); break;
+                        case Level.INFO: logger.LogInformation("{logRequestId} - {logTime} - {message}", requestId, utcDate, message); break;
+                        case Level.WARN: logger.LogWarning("{logRequestId} - {logTime} - {message}", requestId, utcDate, message); break;
+                        case Level.ERROR: logger.LogError("{logRequestId} - {logTime} - {message}", requestId, utcDate, message); break;
+                        case Level.FATAL: logger.LogCritical("{logRequestId} - {logTime} - {message}", requestId, utcDate, message); break;
+                    }
+                };
+
+            JavascriptLogging.OnLogging += loggingHandler;
 
 
 
@@ -142,6 +191,33 @@ namespace WebSite
 
             _logger.LogInformation("test page opened at {requestTime}", DateTime.Now);
 
+            var obj = new { i = 5, j = 6 };
+
+            string json = @"{
+  'Name': 'Bad Boys',
+  'ReleaseDate': '1995-4-7T00:00:00',
+  'Genres': ['Action', 'Comedy'      ]
+}";
+
+            Object m;
+            try
+            {
+                m = Newtonsoft.Json.JsonConvert.DeserializeObject<Object>(json);
+
+            }
+catch
+            {
+                m = json;
+            }
+        //    string name = m.Name;
+        // Bad Boys
+
+
+
+
+            _logger.LogInformation("test page opened at {message}", obj);
+
+            _logger.LogInformation("test page opened at {message}", m);
 
 
         }

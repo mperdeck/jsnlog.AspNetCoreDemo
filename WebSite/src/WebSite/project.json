@@ -30,7 +30,9 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
     "Serilog": "1.5.14",
     "Serilog.Framework.Logging": "1.0.0-rc1-final-10071",
-    "JSNLog": "2.13.0"
+    "Newtonsoft.Json": "7.0.1",
+    "Microsoft.AspNet.Owin": "1.0.0-beta1",
+    "JSNLog": "2.14.0"
   },
 
   "commands": {

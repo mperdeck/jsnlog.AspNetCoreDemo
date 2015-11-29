@@ -151,7 +151,7 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
-      "JSNLog/2.13.0.0": {
+      "JSNLog/2.14.0.0": {
         "dependencies": {
           "Common.Logging": "3.0.0",
           "WebActivatorEx": "2.0.0",
@@ -671,6 +671,20 @@
           "lib/dnx451/Microsoft.AspNet.Http.Features.dll": {}
         }
       },
+      "Microsoft.AspNet.HttpFeature/1.0.0-beta1": {
+        "frameworkAssemblies": [
+          "mscorlib",
+          "System",
+          "System.Core",
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "lib/aspnet50/Microsoft.AspNet.HttpFeature.dll": {}
+        },
+        "runtime": {
+          "lib/aspnet50/Microsoft.AspNet.HttpFeature.dll": {}
+        }
+      },
       "Microsoft.AspNet.Identity/3.0.0-beta5": {
         "dependencies": {
           "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta5",
@@ -905,6 +919,25 @@
           "lib/dnx451/Microsoft.AspNet.Mvc.TagHelpers.dll": {}
         }
       },
+      "Microsoft.AspNet.Owin/1.0.0-beta1": {
+        "dependencies": {
+          "Microsoft.AspNet.Http": "1.0.0-beta1",
+          "Microsoft.AspNet.FeatureModel": "1.0.0-beta1",
+          "Microsoft.AspNet.PipelineCore": "1.0.0-beta1"
+        },
+        "frameworkAssemblies": [
+          "mscorlib",
+          "System",
+          "System.Core",
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "lib/aspnet50/Microsoft.AspNet.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/aspnet50/Microsoft.AspNet.Owin.dll": {}
+        }
+      },
       "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces/1.0.0-beta5": {
         "frameworkAssemblies": [
           "mscorlib",
@@ -917,6 +950,26 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.AspNet.PageExecutionInstrumentation.Interfaces.dll": {}
+        }
+      },
+      "Microsoft.AspNet.PipelineCore/1.0.0-beta1": {
+        "dependencies": {
+          "Microsoft.AspNet.FeatureModel": "1.0.0-beta1",
+          "Microsoft.AspNet.Http": "1.0.0-beta1",
+          "Microsoft.AspNet.HttpFeature": "1.0.0-beta1",
+          "Microsoft.AspNet.WebUtilities": "1.0.0-beta1"
+        },
+        "frameworkAssemblies": [
+          "mscorlib",
+          "System",
+          "System.Core",
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "lib/aspnet50/Microsoft.AspNet.PipelineCore.dll": {}
+        },
+        "runtime": {
+          "lib/aspnet50/Microsoft.AspNet.PipelineCore.dll": {}
         }
       },
       "Microsoft.AspNet.Razor/4.0.0-beta5": {
@@ -1658,7 +1711,7 @@
           "lib/net40/Microsoft.Web.Infrastructure.dll": {}
         }
       },
-      "Newtonsoft.Json/6.0.6": {
+      "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
         },
@@ -1874,11 +1927,11 @@
         "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Interactive.Async.XML"
       ]
     },
-    "JSNLog/2.13.0.0": {
-      "sha512": "92ECOIWLjTGsAi8mbQEuWGEwe3ylmSrqZZ+3I1SDOxjBgzMZiCG4TcTRfsAUkRT8LnlTemwNc14Zk1znl0pkAQ==",
+    "JSNLog/2.14.0.0": {
+      "sha512": "gKb7wV2dFVcdp+QNcQH4waDrYZ8Wl7+pHuBUfsCbNj8X9QTlK3NgtYFgl8/EGvbBgfMIYhjm8Nsa3NN80SHLmA==",
       "files": [
-        "JSNLog.2.13.0.0.nupkg",
-        "JSNLog.2.13.0.0.nupkg.sha512",
+        "JSNLog.2.14.0.0.nupkg",
+        "JSNLog.2.14.0.0.nupkg.sha512",
         "JSNLog.nuspec",
         "readme.txt",
         "content/web.config.transform",
@@ -2252,6 +2305,18 @@
         "lib/dnxcore50/Microsoft.AspNet.Http.Features.xml"
       ]
     },
+    "Microsoft.AspNet.HttpFeature/1.0.0-beta1": {
+      "sha512": "tx0xgmiTbv1e/8IgulYYc4McqoJzMPGR7QqbKGxtdCoSsi3KUEcpW7MrNyTKXPyW8iOw7Ee7vif3rN6GQQkq1g==",
+      "files": [
+        "Microsoft.AspNet.HttpFeature.1.0.0-beta1.nupkg",
+        "Microsoft.AspNet.HttpFeature.1.0.0-beta1.nupkg.sha512",
+        "Microsoft.AspNet.HttpFeature.nuspec",
+        "lib/aspnet50/Microsoft.AspNet.HttpFeature.dll",
+        "lib/aspnet50/Microsoft.AspNet.HttpFeature.xml",
+        "lib/aspnetcore50/Microsoft.AspNet.HttpFeature.dll",
+        "lib/aspnetcore50/Microsoft.AspNet.HttpFeature.xml"
+      ]
+    },
     "Microsoft.AspNet.Identity/3.0.0-beta5": {
       "serviceable": true,
       "sha512": "EPvARm3E3xsIlPGQbEdCLv9ZU3uWwa8JJJo+2xAWoLRu1V4mMwz8M8RZJHCiPzBrlgN4cv0ekKUllI67veXLVg==",
@@ -2408,6 +2473,18 @@
         "lib/dnxcore50/Microsoft.AspNet.Mvc.TagHelpers.xml"
       ]
     },
+    "Microsoft.AspNet.Owin/1.0.0-beta1": {
+      "sha512": "pOGrtd40t2HzmRH32x1eYpVS6LnkfH/tzbfbsIQx7I/5CE7Vd0ImMQyKP6gpfa+qgCkZMxhzuFXo+GlJ0vCuxw==",
+      "files": [
+        "Microsoft.AspNet.Owin.1.0.0-beta1.nupkg",
+        "Microsoft.AspNet.Owin.1.0.0-beta1.nupkg.sha512",
+        "Microsoft.AspNet.Owin.nuspec",
+        "lib/aspnet50/Microsoft.AspNet.Owin.dll",
+        "lib/aspnet50/Microsoft.AspNet.Owin.xml",
+        "lib/aspnetcore50/Microsoft.AspNet.Owin.dll",
+        "lib/aspnetcore50/Microsoft.AspNet.Owin.xml"
+      ]
+    },
     "Microsoft.AspNet.PageExecutionInstrumentation.Interfaces/1.0.0-beta5": {
       "serviceable": true,
       "sha512": "En7tg/QbjcSTYrgeli8t9NgJIpxVq+tpTJJ3owj5TI6ASesn3eysqLjqKR7pp0KQNVu/2GeKZjwvERUwFLtPww==",
@@ -2419,6 +2496,18 @@
         "lib/dnx451/Microsoft.AspNet.PageExecutionInstrumentation.Interfaces.xml",
         "lib/dnxcore50/Microsoft.AspNet.PageExecutionInstrumentation.Interfaces.dll",
         "lib/dnxcore50/Microsoft.AspNet.PageExecutionInstrumentation.Interfaces.xml"
+      ]
+    },
+    "Microsoft.AspNet.PipelineCore/1.0.0-beta1": {
+      "sha512": "aA3NQNbT8vX8w6ZbKprumA0nr4IXR5jm6rSvLEbGCp5J81mmJynG/mU6TA+7vMRGQE8YZbou4zvlJhEmPODQJA==",
+      "files": [
+        "Microsoft.AspNet.PipelineCore.1.0.0-beta1.nupkg",
+        "Microsoft.AspNet.PipelineCore.1.0.0-beta1.nupkg.sha512",
+        "Microsoft.AspNet.PipelineCore.nuspec",
+        "lib/aspnet50/Microsoft.AspNet.PipelineCore.dll",
+        "lib/aspnet50/Microsoft.AspNet.PipelineCore.xml",
+        "lib/aspnetcore50/Microsoft.AspNet.PipelineCore.dll",
+        "lib/aspnetcore50/Microsoft.AspNet.PipelineCore.xml"
       ]
     },
     "Microsoft.AspNet.Razor/4.0.0-beta5": {
@@ -3215,11 +3304,11 @@
         "lib/net40/Microsoft.Web.Infrastructure.dll"
       ]
     },
-    "Newtonsoft.Json/6.0.6": {
-      "sha512": "w26uZNyCG5VeoKiEOJ4+9/o8koSofLKwHl7WLreIcp0U6r57L7WiRXmjp8MTKFw6dYNZ9AE0lw69WYbIhUsU9Q==",
+    "Newtonsoft.Json/7.0.1": {
+      "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
       "files": [
-        "Newtonsoft.Json.6.0.6.nupkg",
-        "Newtonsoft.Json.6.0.6.nupkg.sha512",
+        "Newtonsoft.Json.7.0.1.nupkg",
+        "Newtonsoft.Json.7.0.1.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -3229,12 +3318,10 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
-        "lib/netcore45/Newtonsoft.Json.dll",
-        "lib/netcore45/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll",
-        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
         "tools/install.ps1"
       ]
     },
@@ -3354,7 +3441,9 @@
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
       "Serilog >= 1.5.14",
       "Serilog.Framework.Logging >= 1.0.0-rc1-final-10071",
-      "JSNLog >= 2.13.0"
+      "Newtonsoft.Json >= 7.0.1",
+      "Microsoft.AspNet.Owin >= 1.0.0-beta1",
+      "JSNLog >= 2.14.0"
     ],
     "DNX,Version=v4.5.1": []
   }
