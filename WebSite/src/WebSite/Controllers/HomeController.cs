@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-using Microsoft.Extensions.Logging;
 
-namespace WebSite.Controllers
+namespace Website.Controllers
 {
     public class HomeController : Controller
     {
-        private ILogger _logger;
-        private Constants _constants;
-
-        public HomeController(ILoggerFactory loggerFactory, Constants constants)
-        {
-            _logger = loggerFactory.CreateLogger<HomeController>();
-            _constants = constants;
-        }
-
         public IActionResult Index()
         {
-            _logger.LogInformation("Home page opened at {requestTime}", DateTime.Now);
+            return View();
+        }
 
-            ViewData["LogFilePath"] = _constants.LogFilePath;
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
 
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+
+        public IActionResult Error()
+        {
             return View();
         }
     }
