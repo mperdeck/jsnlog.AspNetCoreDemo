@@ -1,0 +1,34 @@
+{
+  "name": "jsnlog.js",
+  "main": "jsnlog.js",
+  "version": "2.14.0",
+  "authors": [
+    "mperdeck <mperdeck@gmail.com>"
+  ],
+  "description": "Tiny JavaScript logger library, simple and well documented. Lots of options to filter logging data. Sends log data to the server using AJAX.",
+  "keywords": [
+    "logging",
+    "logger",
+    "debugging",
+    "development"
+  ],
+  "license": "MIT",
+  "homepage": "http://js.jsnlog.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "2.14.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.14.0",
+    "commit": "97f496fe3145b1aa1f7394c66c2070d961ecd475"
+  },
+  "_source": "git://github.com/mperdeck/jsnlog.js.git",
+  "_target": "~2.14.0",
+  "_originalSource": "jsnlog",
+  "_direct": true
+}
