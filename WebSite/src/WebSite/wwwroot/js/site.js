@@ -1,1 +1,5 @@
-﻿// Write your Javascript code.
+﻿
+function onClick() {
+    console.log('clicked');
+}
+

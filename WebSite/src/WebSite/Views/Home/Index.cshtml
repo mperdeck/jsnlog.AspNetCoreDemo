@@ -7,5 +7,28 @@
 </head>
 <body>
     <h1>ASP.NET 5 demo for JSNLog</h1>
+
+    <ul>
+        <li>
+            Your log message will appear in the debug window, so run this site in the debugger (F5).
+        </li>
+        <li>
+            To create a log message, click the button below.
+        </li>
+        <li>
+The click handler is in js/site.js. It uses JSNLog to create the log message and send it to the server.
+        </li>
+        <li>
+            To see how to install JSNLog in your ASP.NET 5 application. ########################### link
+        </li>
+    </ul>
+
+    <p>
+        Your log message:
+        <input type="text" id="log-message" />
+    </p>
+    <button onclick="onClick()">Log message to server</button>
+
+    <script src="~/js/site.js"></script>
 </body>
 </html>
