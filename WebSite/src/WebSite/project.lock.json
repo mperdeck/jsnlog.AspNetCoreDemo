@@ -160,7 +160,7 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
-      "JSNLog/2.15.15": {
+      "JSNLog/2.15.16": {
         "type": "package",
         "dependencies": {
           "Common.Logging": "3.0.0",
@@ -2334,7 +2334,7 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
-      "JSNLog/2.15.15": {
+      "JSNLog/2.15.16": {
         "type": "package",
         "dependencies": {
           "Common.Logging": "3.0.0",
@@ -4511,7 +4511,7 @@
           "lib/net45/System.Interactive.Async.dll": {}
         }
       },
-      "JSNLog/2.15.15": {
+      "JSNLog/2.15.16": {
         "type": "package",
         "dependencies": {
           "Common.Logging": "3.0.0",
@@ -6675,17 +6675,17 @@
         "lib/portable-windows8+net45+wp8/System.Interactive.Async.XML"
       ]
     },
-    "JSNLog/2.15.15": {
+    "JSNLog/2.15.16": {
       "type": "package",
-      "sha512": "PcTVdmiVjVKatk9IaDsK3gko51OybFCgeWwsavh9COW2C8dZWVbnJmcYJcoGnqlS1/kiIF9KjxBbPw5lTk6N2A==",
+      "sha512": "qBC1q10vkoEzmzdcLMWtT52NlmBeTDDRqiSwiBzpzdBwFu1kDCXWRWYtTcQ/igOG8xu3XUfGstA6WKVvqkc9ZA==",
       "files": [
         "content/App_Start/JSNLogConfig.cs.pp",
         "content/Scripts/jsnlog.js",
         "content/Scripts/jsnlog.js.map",
         "content/Scripts/jsnlog.min.js",
         "content/web.config.transform",
-        "JSNLog.2.15.15.nupkg",
-        "JSNLog.2.15.15.nupkg.sha512",
+        "JSNLog.2.15.16.nupkg",
+        "JSNLog.2.15.16.nupkg.sha512",
         "JSNLog.nuspec",
         "lib/net40/JSNLog.dll",
         "lib/net451/JSNLog.AspNet5.dll",
@@ -9042,7 +9042,7 @@
     "": [
       "EntityFramework.Commands >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
-      "JSNLog >= 2.15.15",
+      "JSNLog >= 2.15.16",
       "Microsoft.AspNet.Authentication.Cookies >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Diagnostics.Entity >= 7.0.0-rc1-final",
       "Microsoft.AspNet.Identity.EntityFramework >= 3.0.0-rc1-final",
