@@ -6689,7 +6689,9 @@
         "JSNLog.nuspec",
         "lib/net40/JSNLog.dll",
         "lib/net451/JSNLog.AspNet5.dll",
+        "lib/net451/JSNLog.AspNet5.pdb",
         "lib/net451/JSNLog.dll",
+        "lib/net451/JSNLog.pdb",
         "readme.txt"
       ]
     },
