@@ -9,6 +9,7 @@ using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using JSNLog;
 
 namespace Website
 {
@@ -54,6 +55,10 @@ namespace Website
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            // Configure JSNLog
+            var jsnlogConfiguration = new JsnlogConfiguration(); // See jsnlog.com/Documentation/Configuration
+            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
 
