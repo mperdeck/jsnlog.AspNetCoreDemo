@@ -6680,7 +6680,7 @@
     },
     "JSNLog/2.15.0": {
       "type": "package",
-      "sha512": "Yo9+ECkUFuCRiFhRhPPRaf5MOFVi3IaibeflKG3OtyV/k7S6D4WpuB1rQIYCwtslbZn1J/BBE/jWxUPC726aZA==",
+      "sha512": "K/ZFFPiyqmU/GekEcbkiAeeUKpRW02vao/AMWyhDcv6UiOD05sKAZJgZaXEFnFVbiH1mAp32IBIsLzJDOqcyAA==",
       "files": [
         "content/App_Start/JSNLogConfig.cs.pp",
         "content/Scripts/jsnlog.js",
