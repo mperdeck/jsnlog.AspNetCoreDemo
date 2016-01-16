@@ -1,36 +1,26 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ASP.NET 5 demo for JSNLog</title>
-</head>
-<body>
-    <h1>ASP.NET 5 demo for JSNLog</h1>
+﻿<h1>ASP.NET 5 demo for JSNLog</h1>
 
-    <ul>
-        <li>
-            Your log message will appear in the debug window, so run this site in the debugger (F5).
-        </li>
-        <li>
-            To create a log message, click the button below.
-        </li>
-        <li>
-The click handler is in js/site.js. It uses JSNLog to create the log message and send it to the server.
-        </li>
-        <li>
-            <a href="http://jsnlog.com/Documentation/DownloadInstall/ForAspNet5">Install JSNLog in your own ASP.NET 5 application</a>.
+<ul>
+    <li>
+        Your log message will appear in the debug window, so run this site in the debugger (F5).
+    </li>
+    <li>
+        To create a log message, click the button below.
+    </li>
+    <li>
+        The click handler is in js/site.js. It uses JSNLog to create the log message and send it to the server.
+    </li>
+    <li>
+        <a href="http://jsnlog.com/Documentation/DownloadInstall/ForAspNet5">Install JSNLog in your own ASP.NET 5 application</a>.
             
-        </li>
-    </ul>
+    </li>
+</ul>
 
-    <p>
-        Your log message:
-        <input type="text" id="log-message" />
-    </p>
-    <button onclick="onClick()">Log message to server</button>
+<p>
+    Your log message:
+    <input type="text" id="log-message" />
+</p>
+<button onclick="onClick()">Log message to server</button>
 
-    <script src="~/js/site.js"></script>
-    <script src="~/lib/jsnlog/jsnlog.min.js"></script>
-</body>
-</html>
+<script src="~/js/site.js"></script>
+<script src="~/lib/jsnlog/jsnlog.min.js"></script>
