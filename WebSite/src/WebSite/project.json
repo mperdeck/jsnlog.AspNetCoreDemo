@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet5-Website-fd066720-5740-42a5-a531-910caaef0ccf",
   "version": "1.0.0-*",
   "compilationOptions": {
@@ -8,7 +8,7 @@
   "dependencies": {
     "EntityFramework.Commands": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
-    "JSNLog": "2.15.0",
+    "JSNLog": "2.16.0",
     "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
     "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-rc1-final",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
@@ -34,7 +34,8 @@
   },
 
   "frameworks": {
-    "dnx451": { }
+    "dnx451": { },
+    "dnxcore50": { }
   },
 
   "exclude": [
