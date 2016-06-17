@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
+using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -19,7 +20,7 @@ namespace Website
             if (env.IsDevelopment())
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
-                builder.AddUserSecrets();
+                // builder.AddUserSecrets(); 
             }
 
             builder.AddEnvironmentVariables();
@@ -52,7 +53,9 @@ namespace Website
 
             // Configure JSNLog
             var jsnlogConfiguration = new JsnlogConfiguration(); // See jsnlog.com/Documentation/Configuration
-            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
+
+            //  throw new NotImplementedException();
+            //  app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
 
@@ -66,7 +69,17 @@ namespace Website
             });
         }
 
-        // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+             .UseKestrel()
+            .UseIISIntegration()
+            .UseStartup<Startup>()
+            .Build();
+            host.Run();
+        }
+
+
     }
 }
