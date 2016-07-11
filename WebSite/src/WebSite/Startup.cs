@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 using JSNLog;
 
 namespace Website
@@ -14,6 +15,7 @@ namespace Website
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
+                   .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
@@ -32,6 +34,10 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+          //  services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
             services.AddMvc();
         }
 
@@ -55,7 +61,7 @@ namespace Website
             var jsnlogConfiguration = new JsnlogConfiguration(); // See jsnlog.com/Documentation/Configuration
 
             //  throw new NotImplementedException();
-            //  app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
+            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
 
@@ -66,6 +72,21 @@ namespace Website
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            // Create a catch-all response
+            app.Run(async (context) =>
+            {
+                try
+                {
+                    var logger = loggerFactory.CreateLogger("Catchall Endpoint");
+                    logger.LogInformation("No endpoint found for request {path}", context.Request.Path);
+                   // await context.Response.WriteAsync("No endpoint found - try /api/todo.");
+                }
+                catch (Exception ex)
+                {
+
+                }
             });
         }
 
