@@ -19,7 +19,8 @@
     "copyToOutput": {
       "include": [
         "appsettings.json",
-        "Views/**"
+        "Views/**",
+        "wwwroot/**"
       ]
     }
   },
