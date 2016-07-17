@@ -30,7 +30,7 @@
       "type": "build"
     },
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
-    "JSNLog": "__Version__",
+    "JSNLog.AspNetCore": "__Version__",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
