@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
+using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 using JSNLog;
 
 namespace Website
@@ -13,13 +15,14 @@ namespace Website
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
+                   .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsDevelopment())
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
-                builder.AddUserSecrets();
+                // builder.AddUserSecrets(); 
             }
 
             builder.AddEnvironmentVariables();
@@ -31,6 +34,10 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+          //  services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
             services.AddMvc();
         }
 
@@ -52,6 +59,8 @@ namespace Website
 
             // Configure JSNLog
             var jsnlogConfiguration = new JsnlogConfiguration(); // See jsnlog.com/Documentation/Configuration
+
+            //  throw new NotImplementedException();
             app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
@@ -64,9 +73,34 @@ namespace Website
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // Create a catch-all response
+            app.Run(async (context) =>
+            {
+                try
+                {
+                    var logger = loggerFactory.CreateLogger("Catchall Endpoint");
+                    logger.LogInformation("No endpoint found for request {path}", context.Request.Path);
+                   // await context.Response.WriteAsync("No endpoint found - try /api/todo.");
+                }
+                catch (Exception ex)
+                {
+
+                }
+            });
         }
 
-        // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+             .UseKestrel()
+            .UseIISIntegration()
+            .UseStartup<Startup>()
+            .Build();
+            host.Run();
+        }
+
+
     }
 }
