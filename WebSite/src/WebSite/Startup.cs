@@ -59,8 +59,6 @@ namespace Website
 
             // Configure JSNLog
             var jsnlogConfiguration = new JsnlogConfiguration(); // See jsnlog.com/Documentation/Configuration
-
-            //  throw new NotImplementedException();
             app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
