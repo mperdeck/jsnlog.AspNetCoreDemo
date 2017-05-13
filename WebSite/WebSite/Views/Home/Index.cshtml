@@ -9,13 +9,16 @@
         The JavaScript for this demo is in js/site.js. It uses JSNLog to create a log message and send it to the server.
     </li>
     <li>
+        On the server, this demo sends all log entries to the output window.
+    </li>
+    <li>
         <a href="http://jsnlog.com/Documentation/DownloadInstall/ForAspNetCore">Install JSNLog in your own ASP.NET CORE application</a>.
     </li>
 </ul>
 
 <form>
     <fieldset>
-        <legend>Log exception</legend>
+        <legend>Log JavaScript exception</legend>
         <p>
             Calls JavaScript function <i>GenerateException</i> (defined in <i>js/site.js</i>) that causes an exception
             by trying to access a variable that doesn't exist.
@@ -26,7 +29,7 @@
     <p />
 
     <fieldset>
-        <legend>Log a message from JavaScript</legend>
+        <legend>Log message from JavaScript</legend>
         <p>
             Calls JavaScript function <i>LogMessage</i> (defined in <i>js/site.js</i>) that
             logs a message. JSNLog will send the message to the server where it will be logged.
