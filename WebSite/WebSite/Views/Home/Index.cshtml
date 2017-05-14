@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>ASP.NET CORE demo for JSNLog</h1>
+
+<ul>
+    <li>
+        The JavaScript for this demo is in js/site.js. It uses JSNLog to create a log message and send it to the server.
+    </li>
+    <li>
+        On the server, this demo sends all log entries to the output window.
+    </li>
+    <li>
+        <a href="http://jsnlog.com/Documentation/DownloadInstall/ForAspNetCore">Install JSNLog in your own ASP.NET CORE application</a>.
+    </li>
+</ul>
+
+<form>
+    <fieldset>
+        <legend>Log JavaScript exception</legend>
+        <p>
+            Calls JavaScript function <i>GenerateException</i> (defined in <i>js/site.js</i>) that causes an exception
+            by trying to access a variable that doesn't exist.
+            JSNLog will handle this uncaught exception and send it to the server, where it will be logged.
+        </p>
+        <button type="button" onclick="GenerateException()">Generate exception</button>
+    </fieldset>
+    <p />
+
+    <fieldset>
+        <legend>Log message from JavaScript</legend>
+        <p>
+            Calls JavaScript function <i>LogMessage</i> (defined in <i>js/site.js</i>) that
+            logs a message. JSNLog will send the message to the server where it will be logged.
+        </p>
+        <p>
+            <b>Message</b><br />
+            <input type="text" id="message">
+        </p>
+        <p>
+            <b>Severity</b><br/>
+            <input type="radio" name="severity" id="trace" value="Trace">Trace
+            <input type="radio" name="severity" id="debug" value="Debug">Debug
+            <input type="radio" name="severity" id="info"  value="Info">Info
+            <input type="radio" name="severity" id="warn"  value="Warn">Warn
+            <input type="radio" name="severity" id="error" value="Error" checked>Error
+            <input type="radio" name="severity" id="fatal" value="Fatal">Fatal
+        </p>
+        <p>
+            <button type="button" onclick="LogMessage()">Log message</button>
+        </p>
+    </fieldset>
+</form>
+

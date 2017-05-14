@@ -1,7 +1,0 @@
-{
-  "name": "ASP.NET",
-  "private": true,
-  "dependencies": {
-    "jsnlog": "~2.14.0"
-  }
-}
