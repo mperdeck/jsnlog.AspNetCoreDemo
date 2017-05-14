@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using JSNLog;
 
 namespace WebSite
 {
@@ -46,6 +47,10 @@ namespace WebSite
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            // Configure JSNLog
+            var jsnlogConfiguration = new JsnlogConfiguration();
+            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
 
