@@ -19,7 +19,7 @@
     <None Remove="wwwroot\images\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="jsnlog.AspNetCore" Version="2.24.0" />
+    <PackageReference Include="jsnlog.aspnetcore" Version="2.24.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
