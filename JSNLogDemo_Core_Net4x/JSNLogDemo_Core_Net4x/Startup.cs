@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using JSNLog;
+using Microsoft.Extensions.Logging;
+
 namespace JSNLogDemo_Core_Net4x
 {
     public class Startup
@@ -25,7 +28,7 @@ namespace JSNLogDemo_Core_Net4x
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -36,6 +39,11 @@ namespace JSNLogDemo_Core_Net4x
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            // Configure JSNLog
+            //########################### how to load config
+            var jsnlogConfiguration = new JsnlogConfiguration();
+            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
 
             app.UseStaticFiles();
 
