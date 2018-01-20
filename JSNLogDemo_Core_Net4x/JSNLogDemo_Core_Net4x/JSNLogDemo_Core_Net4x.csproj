@@ -6,7 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="JSNLog.AspNetCore" Version="2.*" />
-    
+
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.*" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.*" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.*" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.*" />
