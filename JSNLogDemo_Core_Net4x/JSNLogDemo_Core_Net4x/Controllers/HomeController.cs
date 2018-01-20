@@ -13,5 +13,10 @@ namespace JSNLogDemo_Core_Net4x.Controllers
         {
             return View();
         }
+
+        public IActionResult Error()
+        {
+            return View();
+        }
     }
 }
